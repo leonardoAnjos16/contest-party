@@ -1,0 +1,16 @@
+{
+  "name": "contest-party",
+  "version": "1.0.0",
+  "description": "Suggests a Codeforces contest for practicing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "competitive-programming",
+    "contest",
+    "codeforces"
+  ],
+  "author": "Leonardo Anjos",
+  "license": "MIT"
+}
