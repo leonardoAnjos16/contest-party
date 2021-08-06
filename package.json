@@ -12,5 +12,9 @@
     "codeforces"
   ],
   "author": "Leonardo Anjos",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "command-line-args": "^5.2.0"
+  }
 }
