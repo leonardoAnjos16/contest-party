@@ -1,4 +1,3 @@
-const axios = require('axios');
 const commandLineArgs = require('command-line-args');
 
 const defaultDivision = 2;
