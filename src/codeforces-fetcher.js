@@ -53,7 +53,6 @@ const chooseContest = async (division, participants) => {
             allowed &= !participated[handle];
         });
 
-        console.log(contests[i]);
         if (allowed) return contests[i];
     }
 };
