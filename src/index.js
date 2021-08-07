@@ -1,5 +1,5 @@
 const commandLineArgs = require('command-line-args');
-const { chooseContest } = require('./codeforces-fetcher');
+const { findContest } = require('./codeforces-fetcher');
 
 const defaultDivision = 2;
 
@@ -12,7 +12,7 @@ const division = options.division || defaultDivision;
 const participants = options.participants || [];
 
 const printContest = async () => {
-    const { id, name } = await chooseContest(division, participants);
+    const { id, name } = await findContest(division, participants);
     console.log(`Try ${name} (https://codeforces.com/contest/${id})`);
 };
 

@@ -21,16 +21,16 @@ const fetchContests = async division => {
     return contests;
 };
 
-const chooseContest = async (division, participants) => {
-    // TODO: Shuffle array
+const findContest = async (division, participants) => {
+    // Fetch all contests and shuffles them
     const contests = await fetchContests(division);
-    for (let i = 0; i < contests.length; i++) {
-        const { id } = contests[i];
+    contests.sort(() => Math.random() - .5);
 
+    for (let i = 0; i < contests.length; i++) {
         const queryParams = [
-            `contestId=${id}`,
+            `contestId=${contests[i].id}`,
             `handles=${participants.join(';')}`,
-            `showUnofficial=true`
+            'showUnofficial=true'
         ];
 
         const url = `${API_URL}/contest.standings?${queryParams.join('&')}`;
@@ -48,13 +48,13 @@ const chooseContest = async (division, participants) => {
             participated[handle] = true;
         });
         
-        let allowed = true;
+        let validContest = true;
         participants.forEach(handle => {
-            allowed &= !participated[handle];
+            validContest &= !participated[handle];
         });
 
-        if (allowed) return contests[i];
+        if (validContest) return contests[i];
     }
 };
 
-module.exports = { chooseContest };
+module.exports = { findContest };
