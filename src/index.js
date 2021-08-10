@@ -12,8 +12,12 @@ const division = options.division || defaultDivision;
 const participants = options.participants || [];
 
 const printContest = async () => {
-    const { id, name } = await findContest(division, participants);
-    console.log(`Try ${name} (https://codeforces.com/contest/${id})`);
+    try {
+        const { id, name } = await findContest(division, participants);
+        console.log(`Try ${name} (https://codeforces.com/contest/${id})`);
+    } catch (e) {
+        console.log(e.message);
+    }
 };
 
 printContest();
